@@ -4,7 +4,7 @@
   "mySqlPort": 3306,
   "database": "cinema",
   "mySqlUser": "root",
-  "mySqlPassword": "rootroot",
+  "mySqlPassword": "W4step4%%",
   "passwordSalt": "someHardToGuessStringYouNeverChange",
   "sessionSalt": "someHardToGuessStringYouSeldomChange"
 }
