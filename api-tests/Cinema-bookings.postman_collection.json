@@ -173,7 +173,20 @@
 							"let response = pm.response.json()[0];",
 							"",
 							"// Check that we have Adult, Adult in ticketTypes",
-							"// + that we have correct seats number in seats"
+							"// + that we have correct movie",
+							"// + that we have correct seats number in seats",
+							"",
+							"pm.test('Expect ticketTypes toEqual Adult, Adult', () => {",
+							"    pm.expect(response.ticketTypes).to.equal(\"Adult, Adult\");",
+							"});",
+							"",
+							"pm.test('Expect movie title toEqual Crocodile Dundee', () => {",
+							"    pm.expect(response.movie).to.equal(\"Crocodile Dundee\")",
+							"});",
+							"",
+							"pm.test('Expect seat1, seat2 seatId toEqual Create seat1, seat1 seatId', () => {",
+							"    pm.expect(response.seats).to.equal(seat1, seat2)",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -219,7 +232,17 @@
 						"exec": [
 							"let response = pm.response.json()[0];",
 							"",
-							"// Check that the seats are occupied now!"
+							"// Check that the seats are occupied now!",
+							"",
+							"pm.test('Check occupied seats', () => {",
+							"    pm.expect(response.occupiedSeats).to.have.property(\"2\");",
+							"});",
+							"",
+							"pm.test('Check booked seats', () => {",
+							"    pm.expect(response.occupiedSeats).to.have.property(\"1\" + \"7\");",
+							"});",
+							"",
+							"console.log(pm.environment.get(freeSeats))"
 						],
 						"type": "text/javascript"
 					}
