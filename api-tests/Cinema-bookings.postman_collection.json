@@ -184,8 +184,11 @@
 							"    pm.expect(response.movie).to.equal(\"Crocodile Dundee\")",
 							"});",
 							"",
+							"let seat1 = pm.environment.get(\"seat1\");",
+							"let seat2 = pm.environment.get(\"seat2\");",
+							"",
 							"pm.test('Expect seat1, seat2 seatId toEqual Create seat1, seat1 seatId', () => {",
-							"    pm.expect(response.seats).to.equal(seat1, seat2)",
+							"    pm.expect(response.seats).to.equal(seat1 + \", \" + seat2)",
 							"});"
 						],
 						"type": "text/javascript"
@@ -234,15 +237,17 @@
 							"",
 							"// Check that the seats are occupied now!",
 							"",
+							"let seat1 = pm.environment.get(\"seat1\");",
+							"let seat2 = pm.environment.get(\"seat2\");",
+							"",
+							"",
 							"pm.test('Check occupied seats', () => {",
-							"    pm.expect(response.occupiedSeats).to.have.property(\"2\");",
+							"    pm.expect(response.occupiedSeats).to.include(\"2\");",
 							"});",
 							"",
 							"pm.test('Check booked seats', () => {",
-							"    pm.expect(response.occupiedSeats).to.have.property(\"1\" + \"7\");",
-							"});",
-							"",
-							"console.log(pm.environment.get(freeSeats))"
+							"    pm.expect(response.occupiedSeats).to.include(seat1 + \", \" + seat2);",
+							"});"
 						],
 						"type": "text/javascript"
 					}
